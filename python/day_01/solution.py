@@ -1,4 +1,6 @@
 """
+--- Intro ---
+
 Santa's reindeer typically eat regular reindeer food, but they need a lot of magical energy to deliver presents on Christmas.
 For that, their favorite snack is a special type of star fruit that only grows deep in the jungle.
 The Elves have brought you on their annual expedition to the grove where the fruit grows.
@@ -9,6 +11,8 @@ Although the Elves assure you that the grove has plenty of fruit, you decide to 
 Collect stars by solving puzzles.
 Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first.
 Each puzzle grants one star. Good luck!
+
+--- Part One ---
 
 The jungle must be too overgrown and difficult to navigate in vehicles or access from the air; the Elves' expedition traditionally goes on foot.
 As your boats approach land, the Elves begin taking inventory of their supplies.
@@ -46,6 +50,19 @@ In the example above, this is 24000 (carried by the fourth Elf).
 
 Find the Elf carrying the most Calories.
 How many total Calories is that Elf carrying?
+
+--- Part Two ---
+
+By the time you calculate the answer to the Elves' question, they've already realized that the Elf carrying the most Calories of food might eventually run out of snacks.
+
+To avoid this unacceptable situation, the Elves would instead like to know the total Calories carried by the top three Elves carrying the most Calories.
+That way, even if one of those Elves runs out of snacks, they still have two backups.
+
+In the example above, the top three Elves are the fourth Elf (with 24000 Calories), then the third Elf (with 11000 Calories), then the fifth Elf (with 10000 Calories).
+The sum of the Calories carried by these three elves is 45000.
+
+Find the top three Elves carrying the most Calories.
+How many Calories are those Elves carrying in total?
 """
 from dataclasses import dataclass
 from pathlib import Path
@@ -60,8 +77,6 @@ def elves_and_their_calories(inputs: list[str]) -> list[Elf]:
     """Returns a list of Elf objects with their calories each, from the inputs."""
     elves = []
     current = Elf()
-
-    current = Elf()
     for line in inputs:
         if line == "":
             elves.append(current)
@@ -75,4 +90,6 @@ if __name__ == "__main__":
     inputs = Path("input.txt").read_text().splitlines()
     elves = elves_and_their_calories(inputs)
     calories = [elf.calories for elf in elves]
-    print(max(calories))
+    top3_calories = sorted(calories, reverse=True)[:3]
+    print("Part 1: ", max(calories))
+    print("Part 2: ", sum(top3_calories))

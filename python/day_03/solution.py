@@ -79,11 +79,10 @@ from pathlib import Path
 
 # ----- For Part 1 ----- #
 
+# this gives {"a": 1, "b": 2, ...}
 letter_to_priority = {
     letter: priority
-    for priority, letter in enumerate(
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 1
-    )
+    for priority, letter in enumerate("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 1)
 }
 
 
@@ -101,13 +100,9 @@ def common_item(compartment_1: str, compartment_2: str) -> set[str]:
 # ----- For Part 2 ----- #
 
 
-def common_items_three_rucksacks(
-    rucksack_1: str, rucksack_2: str, rucksack_3: str
-) -> str:
+def common_items_three_rucksacks(rucksack_1: str, rucksack_2: str, rucksack_3: str) -> str:
     """Return the items that appear in all three rucksacks."""
-    return list(set(rucksack_1) & set(rucksack_2) & set(rucksack_3))[
-        0
-    ]  # ok as there is only one
+    return list(set(rucksack_1) & set(rucksack_2) & set(rucksack_3))[0]  # ok as there is only one
 
 
 # ----- Running ----- #

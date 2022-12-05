@@ -60,19 +60,8 @@ from pathlib import Path
 
 shape_to_points = {"rock": 1, "paper": 2, "scissors": 3}
 outcome_to_points = {"win": 6, "draw": 3, "loss": 0}
-letter_to_shape = {
-    "a": "rock",
-    "b": "paper",
-    "c": "scissors",
-    "x": "rock",
-    "y": "paper",
-    "z": "scissors",
-}
-letter_to_outcome = {
-    "x": "loss",
-    "y": "draw",
-    "z": "win",
-}
+letter_to_shape = {"a": "rock", "b": "paper", "c": "scissors", "x": "rock", "y": "paper", "z": "scissors"}
+letter_to_outcome = {"x": "loss", "y": "draw", "z": "win"}
 
 
 def round_score(own_shape: str, outcome: str) -> int:

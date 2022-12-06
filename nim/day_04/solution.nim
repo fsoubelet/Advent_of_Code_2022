@@ -84,11 +84,11 @@ proc elf_sections(input_line: string): (HashSet[int], HashSet[int]) =
         elf2_start: int = elf2.split("-")[0].parseInt
         elf2_end: int = elf2.split("-")[1].parseInt
 
-        elf1_sections = toSeq(elf1_start..elf1_end)
-        elf2_sections = toSeq(elf2_start..elf2_end)
+        elf1_sections: seq[int] = toSeq(elf1_start..elf1_end)
+        elf2_sections: seq[int] = toSeq(elf2_start..elf2_end)
 
-        elf1_set = toHashSet(elf1_sections)
-        elf2_set = toHashSet(elf2_sections)
+        elf1_set: HashSet[int] = toHashSet(elf1_sections)
+        elf2_set: HashSet[int] = toHashSet(elf2_sections)
 
     return (elf1_set, elf2_set)
 

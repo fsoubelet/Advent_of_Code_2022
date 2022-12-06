@@ -59,15 +59,10 @@ How many characters need to be processed before the first start-of-message marke
 """
 from pathlib import Path
 
-# ----- For Part 1 ----- #
-
 
 def all_different(elements: str) -> bool:
     """Returns True if all elements are different."""
     return len(set(elements)) == len(elements)
-
-
-# ----- For Part 2 ----- #
 
 
 # ----- Running ----- #

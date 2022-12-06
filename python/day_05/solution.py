@@ -173,13 +173,20 @@ def move(stacks: dict[int, str], instruction: str):
 def move_part2(stacks: dict[int, str], instruction: str):
     """Almost the same as part 1 but several crates are moved at the same time."""
     staks = deepcopy(stacks)
+    # print(instruction)
     quantity, start_position, end_position = parse_move_instruction(instruction)
+    # print(quantity, start_position, end_position)
 
-    # which element we will move, last one in the string = top of the stack
+    # which elements we will move, last 'quantity' ones in the string = top of the stack
     cargo = staks[start_position][-quantity:]  # select all at once
+    # print("Moving: ", cargo)
+    # print("From: ", staks[start_position])
+    # print("Which becomes: ", staks[start_position][:-quantity])
+    # print("To: ", staks[end_position])
+    # print("Which becomes: ", staks[end_position] + cargo)
     staks[start_position] = staks[start_position][:-quantity]  # removes the elements together
     staks[end_position] += cargo  # with strings this appends
-
+    # print(stacks)
     return staks
 
 

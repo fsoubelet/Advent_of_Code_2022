@@ -162,6 +162,7 @@ In this example, the divider packets are 10th and 14th, and so the decoder key i
 Organize all of the packets into the correct order.
 What is the decoder key for the distress signal?
 """
+import ast
 import functools
 
 from pathlib import Path
@@ -226,7 +227,7 @@ if __name__ == "__main__":
 
     for line in inputs:
         if len(line) > 0:
-            packets.append(eval(line))  # DO NOT TRY THIS AT HOME!
+            packets.append(ast.literal_eval(line))
 
     # Part 1
     index = 1
@@ -245,7 +246,7 @@ if __name__ == "__main__":
 
     for line in inputs:
         if len(line) > 0:
-            packets.append(eval(line))  # DO NOT TRY THIS AT HOME!
+            packets.append(ast.literal_eval(line))
 
     packets.append([[2]])  # add first divider packet
     packets.append([[6]])  # add second divider packet
